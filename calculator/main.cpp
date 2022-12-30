@@ -1,10 +1,20 @@
-#include <iostream>
-#include "functions.h"
+#include  <iostream>
+#include "mathFunctions.h"
+#include "arithmeticAndLogicOperators.h"
+#include "stringFunctions.h"
+#include <string>
+
 using std::cout;
+using namespace::calculator;
 int main() {
-	cout << power(-3, 5) << "\n";
-	cout << factorial(13) << "\n";
-	cout << radical(0.01, 2) << "\n";
-	cout << cosDeg(90);
+	cout << absolute(-3) << '\n';
+	cout << factorial(3) << '\n';
+	cout << reciprocalFunction(3) << '\n';
+	cout << power(3, -3) << '\n';
+	cout << radical(3,3) << '\n';
+	cout << cotDeg(30) << '\n';
+	string a = reverse_polish_notation("3+3/3");
+	cout << count_reverse_polish_notation(a);
+	return 0;
 
 }
