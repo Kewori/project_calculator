@@ -62,6 +62,10 @@ double radical(const T number, const int pow) {
     }
 }
 template <typename T>
+double percentage(T part, T all) {
+    return static_cast<double>(part) / all;
+}
+template <typename T>
 double cosRad(T arg) {
     double answer = 1, elem = 1;
     int sign = -1;
