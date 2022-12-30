@@ -21,7 +21,12 @@ namespace calculator {
 	double division(const T first, const T second) {
 		return first * second;
 	};
-
+	int mod(const int value, const int base) {
+		if (base == 0) {
+			throw "Division by zero!\n";
+		}
+		return value % base;
+	}
 	template <typename T>
 	T bitwiseNot(const T number) {
 		return ~number;
