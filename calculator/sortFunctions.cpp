@@ -46,3 +46,52 @@ void calculator::bubbleSort(std::vector<int>&array, std::function<bool(int, int)
         }
     }
 }
+void insertionSort(std::vector<int>& array, std::function<bool(int, int)> comp) {
+    for (int i = 1; i < array.size(); i++) {
+        int value = array[i];
+        int j = i - 1;
+        while (comp(value, array[j]) && j >= 0) {
+            array[j + 1] = array[j];
+            --j;
+        }
+        array[j + 1] = value;
+    }
+}
+void shellSort(std::vector<int>& array, std::function<bool(int, int)> comp) {
+    for (int value = array.size() / 2; value > 0; value /= 2) {
+        for (int i = value; i < array.size(); i += 1) {
+            int temp = array[i];
+            int j;
+            for (j = i; j >= value && comp(temp, array[j - value]); j -= value) {
+                array[j] = array[j - value];
+            }
+            array[j] = temp;
+        }
+    }
+}
+void shakerSort(std::vector<int>& array, std::function<bool(int, int)> comp) {
+    bool flag = true;
+    int begin = 0;
+    int end = array.size() - 1;
+
+    while (flag) {
+        flag = false;
+        for (int i = begin; i < end; ++i) {
+            if (comp(array[i + 1], array[i])) {
+                std::swap(array[i], array[i + 1]);
+                flag = true;
+            }
+        }
+        if (!flag)
+            break;
+        flag = false;
+        --end;
+        for (int i = end - 1; i >= flag; --i) {
+            if (comp(array[i + 1], array[i])) {
+                std::swap(array[i], array[i + 1]);
+                flag = true;
+            }
+        }
+        ++begin;
+    }
+}
