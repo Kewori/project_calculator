@@ -5,7 +5,7 @@
 #include <string>
 
 using std::cout;
-using namespace::calculator;
+using namespace calculator;
 int main() {
 	cout << absolute(-3) << '\n';
 	cout << factorial(3) << '\n';
